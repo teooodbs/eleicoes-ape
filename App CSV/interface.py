@@ -1,3 +1,4 @@
+#interface - feita por Eryk #
 import tkinter as tk
 from tkinter import ttk
 import csv
@@ -34,7 +35,7 @@ def listar_candidatos():
 
 def exibir_informacoes():
     candidato_codigo = entry_candidato.get()
-    # lógica pra exibir informações do candidato pelo código #
+    # lógica pra exibir informações do candidato pelo código - Felipe #
     candidato = next((registro for registro in registros if registro[colunas.index('SQ_CANDIDATO')] == candidato_codigo), None)
     if candidato:
         resultado = f"Nome: {candidato[colunas.index('NM_CANDIDATO')]}\nNome na urna: {candidato[colunas.index('NM_URNA_CANDIDATO')]}\nNúmero: {candidato[colunas.index('NR_CANDIDATO')]}\nPartido: {candidato[colunas.index('SG_PARTIDO')]}"
@@ -103,7 +104,7 @@ def gerar_estatisticas_html():
                 estatisticas[cargo]['Estado civil'][estado_civil] = 0
             estatisticas[cargo]['Estado civil'][estado_civil] += 1
         
-        # gerar html #
+        #html - Heloisa #
         html_content = "<html><head><title>Estatísticas dos candidatos</title></head><body>"
         html_content += f"<h1>- Estatísticas dos candidatos do município {municipio_codigo} -</h1>"
         
@@ -141,7 +142,7 @@ def gerar_estatisticas_html():
     else:
         resultado_label.config(text="Nenhum candidato encontrado para o município informado.")
 
-# programa principal #
+# programa principal - Feito por Clodoaldo #
 with open('consulta_cand_2024_PB.csv', 'r') as arq:
     reader = csv.reader(arq, delimiter=';')
     planilha = list(reader)
